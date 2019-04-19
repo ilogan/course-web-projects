@@ -9,18 +9,16 @@ class App extends Component {
       long: null,
       errorMessage: null
     };
+  }
+
+  componentDidMount() {
     window.navigator.geolocation.getCurrentPosition(
-      position => {
-        console.log(position);
+      position =>
         this.setState({
           lat: position.coords.latitude,
           long: position.coords.longitude
-        });
-      },
-      err =>
-        this.setState({
-          errorMessage: err.message
-        })
+        }),
+      err => this.setState({ errorMessage: err.message })
     );
   }
 
