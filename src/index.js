@@ -33,18 +33,3 @@ class App extends Component {
 }
 
 ReactDOM.render(<App />, document.querySelector("#root"));
-
-/* new Date().getMonth()
-0->11
-jan->dec
-north
-[9,2] winter [3,8] summer
-south
-[3,8] winter [9,2] summer
-
-lat>0 northern
-lat<0 southern
-
-getseason(lat month)
-
-console log season
