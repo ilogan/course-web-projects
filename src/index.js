@@ -17,23 +17,19 @@ class App extends Component {
     );
   }
 
-  render() {
+  renderContent() {
     if (this.state.errorMessage && !this.state.lat) {
       return <div>Error: {this.state.errorMessage}</div>;
     }
     if (!this.state.errorMessage && this.state.lat) {
-      return (
-        <div>
-          <SeasonDisplay lat={this.state.lat} />
-        </div>
-      );
+      return <SeasonDisplay lat={this.state.lat} />;
     } else {
-      return (
-        <div>
-          <Spinner message="Please accept location request" />
-        </div>
-      );
+      return <Spinner message="Please accept location request" />;
     }
+  }
+
+  render() {
+    return <div>{this.renderContent()}</div>;
   }
 }
 
