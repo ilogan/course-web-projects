@@ -4,7 +4,6 @@ import "./ImageList.css";
 import ImageCard from "./ImageCard";
 
 const ImageList = props => {
-  console.log(props.images);
   const imageDivs = props.images.map(image => (
     <ImageCard key={image.id} image={image} />
   ));
