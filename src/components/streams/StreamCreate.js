@@ -33,6 +33,9 @@ class StreamCreate extends React.Component {
     return (
       <form
         className="ui form error"
+        // handleSubmit (provided by redux-form) automatically does
+        // event.preventDefault(). it also automatically puts
+        // form values as an argument into the callback it invokes
         onSubmit={this.props.handleSubmit(this.onSubmit)}
       >
         <Field name="title" component={this.renderInput} label="Enter Title" />

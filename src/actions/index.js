@@ -21,6 +21,17 @@ export const signOut = () => {
   };
 };
 
+/* 
+  /streams refers to the stream key in the db.json file
+  we defined "streams": [] when we created the file and that was it...
+  from there the endpoint is available, so we can access the array via
+  axios. if we wanted to create a new endpoint, it would be as simple
+  as adding "newEndpoing": [] to db.json
+
+  posting on axios only updates db.json. to sync up the redux store, 
+  we still have to use dispatch/reducers etc.
+*/
+
 export const createStream = formValues => async dispatch => {
   const response = await streams.post("/streams", formValues);
   dispatch({ type: CREATE_STREAM, payload: response.data });
