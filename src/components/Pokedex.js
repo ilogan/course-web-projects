@@ -6,7 +6,7 @@ class Pokedex extends Component {
   render() {
     return (
       <div>
-        <Pokecard />
+        <Pokecard id={4} name="Charmander" type="fire" base_experience={62} />
       </div>
     );
   }
