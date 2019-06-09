@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import "./Pokecard.css";
 
-const PokeAPI =
-  "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/";
+const PokeAPI = "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/";
+//"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/";
+
+const padThree = num => (num <= 999 ? `00${num}`.slice(-3) : num);
 
 class Pokecard extends Component {
   render() {
@@ -12,7 +14,7 @@ class Pokecard extends Component {
         <div className="Pokecard-content">
           <h1 className="Pokecard-header">{name}</h1>
           <img
-            src={`${PokeAPI}${id}.png`}
+            src={`${PokeAPI}${padThree(id)}.png`}
             alt="name"
             className="Pokecard-img"
           />
