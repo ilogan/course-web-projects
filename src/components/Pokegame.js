@@ -38,12 +38,24 @@ class Pokegame extends Component {
     ]
   };
 
+  totalExp(array) {
+    let total = 0;
+    for (let pokemon of array) {
+      total += pokemon.base_experience;
+    }
+    return total;
+  }
+
   render() {
     const deck = splitDeck(this.props.pokemon);
+    const p1xp = this.totalExp(deck[0]);
+    const p2xp = this.totalExp(deck[1]);
+    const p1win = p1xp > p2xp;
+    const p2win = p2xp > p1xp;
     return (
       <div>
-        <Pokedex pokemon={deck[0]} />
-        <Pokedex pokemon={deck[1]} />
+        <Pokedex pokemon={deck[0]} totalExp={p1xp} isWinner={p1win} />
+        <Pokedex pokemon={deck[1]} totalExp={p2xp} isWinner={p2win} />
       </div>
     );
   }
