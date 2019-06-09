@@ -33,8 +33,9 @@ class Pokedex extends Component {
     return (
       <div className="Pokedex">
         <h1>Pokedex</h1>
+        <p>Total Experience: {this.props.totalExp}</p>
+        <p>{this.props.isWinner ? "WINNER!" : "LOSER!"}</p>
         {this.renderPokecards()}
-        {this.props.isWinner ? <div>THIS HAND WINS!</div> : null}
       </div>
     );
   }

@@ -1,29 +1,6 @@
 import React, { Component } from "react";
 import Pokedex from "./Pokedex";
 
-const randomIndex = array => {
-  return Math.floor(Math.random() * array.length);
-};
-
-const splitDeck = array => {
-  // each player gets 1/2 the deck
-  const cardsPerPlayer = array.length / 2;
-
-  // player 1 starts with with all cards
-  const p1 = [...array];
-
-  // player 2 starts with none
-  const p2 = [];
-
-  // cards are randomly taken from p1 and given to p2 until they have equal cards
-  let card = {};
-  for (let i = 0; i < cardsPerPlayer; ++i) {
-    card = p1.splice(randomIndex(p1), 1)[0];
-    p2.push(card);
-  }
-  return [p1, p2];
-};
-
 class Pokegame extends Component {
   static defaultProps = {
     pokemon: [
@@ -38,24 +15,27 @@ class Pokegame extends Component {
     ]
   };
 
-  totalExp(array) {
-    let total = 0;
-    for (let pokemon of array) {
-      total += pokemon.base_experience;
-    }
-    return total;
-  }
-
   render() {
-    const deck = splitDeck(this.props.pokemon);
-    const p1xp = this.totalExp(deck[0]);
-    const p2xp = this.totalExp(deck[1]);
-    const p1win = p1xp > p2xp;
-    const p2win = p2xp > p1xp;
+    const hand1 = [];
+    const hand2 = [...this.props.pokemon];
+    while (hand1 < hand2) {
+      let randIdx = Math.floor(Math.random() * hand2.length);
+      let randPokemon = hand2.splice(randIdx, 1)[0];
+      hand1.push(randPokemon);
+    }
+    const exp1 = hand1.reduce(
+      (total, pokemon) => total + pokemon.base_experience,
+      0
+    );
+    const exp2 = hand2.reduce(
+      (total, pokemon) => total + pokemon.base_experience,
+      0
+    );
+
     return (
       <div>
-        <Pokedex pokemon={deck[0]} totalExp={p1xp} isWinner={p1win} />
-        <Pokedex pokemon={deck[1]} totalExp={p2xp} isWinner={p2win} />
+        <Pokedex pokemon={hand1} totalExp={exp1} isWinner={exp1 > exp2} />
+        <Pokedex pokemon={hand2} totalExp={exp2} isWinner={exp2 > exp1} />
       </div>
     );
   }
