@@ -1,6 +1,5 @@
 .row {
   max-width: 114rem; // will expand 1140 pixels at max and shrink dynamically filling page otherwise
-  background-color: #eee;
   margin: 0 auto; // centers content within it...browser will automatically figure out left and right margin
 
   &:not(:last-child) {
@@ -10,7 +9,6 @@
   @include clearfix;
 
   [class^="col-"] {
-    background-color: orangered;
     float: left;
 
     &:not(:last-child) {
