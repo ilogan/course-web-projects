@@ -159,12 +159,18 @@ body {
   font-size: 1.6rem;
   display: inline-block;
   border-bottom: 1px solid #55c57a;
-  padding: 3px; }
+  padding: 3px;
+  transition: all 0.2s; }
 
 .btn-text:hover {
   color: #fff;
   background-color: #55c57a;
-  transform: translateY(-5px); }
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+  transform: translateY(-0.5rem); }
+
+.btn-text:active {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  transform: translateY(0); }
 
 .header {
   height: 95vh;
