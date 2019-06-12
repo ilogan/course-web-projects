@@ -95,8 +95,14 @@ body {
 .u-center-text {
   text-align: center; }
 
-.u-margin-bottom-8 {
+.u-margin-bottom-big {
   margin-bottom: 8rem; }
+
+.u-margin-bottom-small {
+  margin-bottom: 4rem; }
+
+.u-margin-bottom-small {
+  margin-bottom: 1.5rem; }
 
 .btn:link, .btn:visited {
   text-transform: uppercase;
@@ -146,6 +152,19 @@ body {
   .btn--animated:hover::after {
     transform: scaleX(1.4) scaleY(1.6);
     opacity: 0; }
+
+.btn-text:link, .btn-text:visited {
+  color: #55c57a;
+  text-decoration: none;
+  font-size: 1.6rem;
+  display: inline-block;
+  border-bottom: 1px solid #55c57a;
+  padding: 3px; }
+
+.btn-text:hover {
+  color: #fff;
+  background-color: #55c57a;
+  transform: translateY(-5px); }
 
 .header {
   height: 95vh;
