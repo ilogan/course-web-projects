@@ -61,3 +61,16 @@ body {
     //             x     y   blur       color       opacity
   }
 }
+
+.heading-tertiary {
+  font-size: $font-size-small;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.paragraph {
+  font-size: $font-size-small;
+  &:not(:last-child) {
+    margin-bottom: 3rem;
+  }
+}
