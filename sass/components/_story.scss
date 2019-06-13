@@ -1,0 +1,39 @@
+.story {
+  width: 75%;
+  margin: 0 auto;
+  box-shadow: 0 3rem 6rem rgba($color-black, 0.1);
+  background-color: $color-white;
+  border-radius: 3px;
+  padding: 6rem;
+  padding-left: 9rem;
+  font-size: $font-size-default;
+  transform: skewX(-12deg);
+
+  &__shape {
+    width: 15rem;
+    height: 15rem;
+    float: left;
+
+    //how the content flows around shjape
+    -webkit-shape-outside: circle(50% at 50% 50%);
+    shape-outside: circle(50% at 50% 50%);
+
+    // how the content looks visually
+    clip-path: circle(50% at 50% 50%);
+
+    // be smarter than using margin
+    // margin-right: 5rem; <----NO!
+    // use transform translate instead
+    transform: translateX(-3rem) skewX(12deg);
+  }
+
+  &__img {
+    // always declare height or width for responsive images
+    height: 100%;
+  }
+
+  &__text {
+    transform: skewX(12deg);
+    height: 15rem;
+  }
+}
