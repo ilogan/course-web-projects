@@ -6,9 +6,6 @@
   height: 50rem;
 
   &__side {
-    color: #fff;
-    font-size: 3rem;
-
     height: 50rem;
     transition: all 0.8s ease;
     position: absolute;
@@ -20,7 +17,7 @@
     overflow: hidden;
     box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
     &--front {
-      background-color: #fff;
+      background-color: $color-white;
     }
 
     &--back {
