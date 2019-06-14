@@ -12,6 +12,10 @@ const requestHandler = (req, res) => {
             <body>
               <h1>Hello there!</h1>
               <p>This is the main page</p>
+              <form action="/create-user" method="POST">
+                <input type="text" name="username" />
+                <button type="submit">Submit</button>
+              </form>
             </body>
           </html>`
       );
@@ -34,6 +38,21 @@ const requestHandler = (req, res) => {
       );
       break;
     }
+
+    case "/create-user": {
+      res.write(
+        `<html>
+            <head>
+              <title>Users</title>
+            </head>
+            <body>
+              <h1>Just a user page!</h1>
+            </body>
+          </html>`
+      );
+      break;
+    }
+
     default: {
       res.write(
         `<html>
