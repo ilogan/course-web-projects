@@ -46,10 +46,25 @@ const requestHandler = (req, res) => {
               <title>Users</title>
             </head>
             <body>
-              <h1>Just a user page!</h1>
-            </body>
-          </html>`
+              <h1>User creation page!</h1>`
       );
+      if (method === "POST") {
+        const body = [];
+        req.on("data", chunk => {
+          body.push(chunk);
+        });
+
+        return req.on("end", () => {
+          const parsedBody = Buffer.concat(body).toString();
+          console.log(parsedBody);
+          const user = parsedBody.split("=")[1];
+          res.write(`
+            <p>Welcome ${user}!</p></body></html>
+          `);
+          res.end();
+        });
+      }
+      res.write(`</body></html>`);
       break;
     }
 
@@ -66,6 +81,8 @@ const requestHandler = (req, res) => {
       );
     }
   }
+  console.log("exited switch");
+  console.log(req.url);
   res.end();
 };
 
