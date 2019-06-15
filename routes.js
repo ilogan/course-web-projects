@@ -11,7 +11,8 @@ const requestHandler = (req, res) => {
   if (url === "/") {
     res.write(
       `<html>
-        <head>
+        <head><title>Node Server</title></head>
+        <body>
           <form action="/message" method="POST">
             <input type="text" value="Default1" name="input_1"/>
             <input type="text" value="Default2" name="input_2"/>
