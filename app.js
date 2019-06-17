@@ -10,7 +10,7 @@ const port = 3000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: false })); // false: no nested objects true: nested objects
 
-app.use(adminRoutes);
+app.use("/admin", adminRoutes);
 app.use(shopRoutes);
 
 // catch all route
