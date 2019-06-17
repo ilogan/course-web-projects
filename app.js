@@ -13,6 +13,12 @@ app.use(express.urlencoded({ extended: false })); // false: no nested objects tr
 app.use(adminRoutes);
 app.use(shopRoutes);
 
+// catch all route
+app.use((req, res) => {
+  res.status(404).send(`<h1>Page not found</h1>`);
+});
+
+// callback optional
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
