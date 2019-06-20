@@ -1,5 +1,4 @@
 const express = require("express");
-
 const path = require("path");
 
 const adminRoutes = require("./routes/admin");
@@ -14,7 +13,7 @@ app.use(express.json()); // parses incoming json requests
 app.use(express.urlencoded({ extended: false })); // false: no nested objects true: nested objects | parses form data
 app.use(express.static(path.join(__dirname, "public"))); // allows access to static files in public dir
 
-app.use("/admin", adminRoutes);
+app.use("/admin", adminRoutes.router);
 app.use(shopRoutes);
 
 // catch all route
