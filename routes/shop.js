@@ -9,7 +9,7 @@ const router = express.Router();
 // get uses exact path matching
 router.get("/", (req, res) => {
   console.log(adminData.products);
-  res.sendFile(path.join(rootDir, "views", "shop.html"));
+  res.render("shop");
 });
 
 module.exports = router;

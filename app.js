@@ -13,12 +13,14 @@ app.use(express.json()); // parses incoming json requests
 app.use(express.urlencoded({ extended: false })); // false: no nested objects true: nested objects | parses form data
 app.use(express.static(path.join(__dirname, "public"))); // allows access to static files in public dir
 
+app.set("view engine", "pug");
+
 app.use("/admin", adminRoutes.router);
 app.use(shopRoutes);
 
 // catch all route
 app.use((req, res) => {
-  res.status(404).sendFile(path.join(rootDir, "views", "404.html"));
+  res.status(404).render("404");
 });
 
 // callback optional
