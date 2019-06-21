@@ -12,7 +12,8 @@ router.get("/", (req, res) => {
   console.log(adminData.products);
   res.render("shop", {
     products,
-    docTitle: "Shop"
+    pageTitle: "Shop",
+    path: "/"
   });
 });
 

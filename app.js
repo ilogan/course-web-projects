@@ -20,7 +20,9 @@ app.use(shopRoutes);
 
 // catch all route
 app.use((req, res) => {
-  res.status(404).render("404");
+  res.status(404).render("404", {
+    pageTitle: "Page Not Found"
+  });
 });
 
 // callback optional
